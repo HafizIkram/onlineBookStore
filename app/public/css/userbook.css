@@ -1,0 +1,108 @@
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th,
+td {
+	padding: 8px;
+	text-align: left;
+	border-bottom: 1px solid #ddd;
+}
+
+
+table,
+th,
+td {
+	border: 1px solid;
+	border-color: black;
+}
+
+th {
+	background-color: darkblue;
+	color: white;
+}
+
+body {
+	background-color: lightgrey;
+	color: black;
+}
+
+.mystyle {
+	border: 5px outset;
+	border-width: 5px;
+	background-color: darkblue;
+	text-align: center;
+	width: auto;
+	height: auto;
+	color: white;
+}
+
+.card {
+	box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
+	max-width: 45%;
+	margin: auto;
+	text-align: center;
+	font-family: arial;
+	height: 65%;
+	background-color: white;
+	border-radius: 25px;
+}
+
+input {
+	width: 200px;
+	padding: 12px 20px;
+	margin: 6px;
+	box-sizing: 300px;
+	border-radius: 40px;
+	text-align: center;
+	height: 25px;
+	background-color: lightgray
+}
+
+select {
+	width: 250px;
+	margin: 6px;
+	border-radius: 40px;
+	text-align: center;
+	height: 25px;
+	margin: 6px;
+	background-color: lightgray;
+}
+
+button {
+	background-color: darkblue;
+	border-radius: 40px;
+	color: white;
+	padding: 6px 24px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	box-shadow: 0 4px rgba(0, 0, 0, 0.2);
+	width: 175px;
+}
+
+.card1 {
+	box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
+	max-width: 50%;
+	margin: auto;
+	text-align: center;
+	font-family: arial;
+	height: 150px;
+	background-color: white;
+	border-radius: 25px;
+}
+
+h4 {
+	color: blue;
+}
+
+select {
+	width: 150px;
+	margin: 6px;
+	border-radius: 40px;
+	text-align: center;
+	height: 25px;
+	margin: 6px;
+	background-color: gainsboro;

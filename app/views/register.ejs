@@ -1,0 +1,166 @@
+<html>
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/prettyPhoto.css" rel="stylesheet">
+  <link href="css/price-range.css" rel="stylesheet">
+  <link href="css/animate.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
+  <link href="css/responsive.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="js/register.js"></script>
+</head>
+<style>
+  .body-class {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+  .images-body {
+    height: 100%;
+    width: 30%;
+    background-color: wheat;
+    display: flex;
+    flex-direction: column;
+  }
+  .image-container {
+    margin-top: 20%;
+    /* margin-left: 5px; */
+    height: 35%;
+    width: 100%;
+  }
+  .col-sm-4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    width: 40%;
+    /* background-color:  #4DB1FF; */
+  }
+  .signup-form {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 60%;
+    /* background-color: #4DB1FF; */
+  }
+  form {
+    height: 90%;
+    width: 100%;
+  }
+  .btn-btn-default {
+    display: block;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+
+<body ng-app="myApp" ng-controller="MainCtrl">
+<!-- <div class="images-body">
+    <div class="image-container">
+      <img src="images/gallery/library6.jpg" alt="Light House" style="width:100%; height:100%">
+    </div>
+    <div class="image-container">
+      <img src="images/gallery/library6.jpg" alt="Light House" style="width:100%; height:100%">
+    </div>
+    <div class="image-container">
+      <img src="images/gallery/library6.jpg" alt="Light House" style="width:100%; height:100%">
+    </div>
+    <div class="image-container">
+      <img src="images/gallery/library6.jpg" alt="Light House" style="width:100%; height:100%">
+    </div>
+</div> -->
+<div class="body-class">
+  <div class="images-body">
+    <div class="image-container">
+      <img src="images/gallery/library6.jpg" alt="Light House" style="width:100%; height:100%">
+    </div>
+    <div class="image-container">
+      <img src="images/gallery/library6.jpg" alt="Light House" style="width:100%; height:100%">
+    </div>
+  </div>
+    <div class="signup-form">
+    <form  method="post" action="/registered" onsubmit="return alert('You will be redirected to login to confirm registration')" >
+      <input type="hidden"  class="input" id="gender" name="gender" value="{{Gen}}" >
+  
+  <input type="text"  class="input" name="fname" id="fname" placeholder="First Name" required value="" onkeydown="return (event.keyCode > 64 &&
+  event.keyCode < 91) || (event.keyCode > 96 && event.keyCode < 123) || (event.keyCode == 8) || (event.keyCode == 9) || (event.keyCode == 32)" />
+  
+      <input type="text"  class="input" name="sname" id="sname" placeholder="Last Name" required value="" onkeydown="return (event.keyCode > 64 &&
+  event.keyCode < 91) || (event.keyCode > 96 && event.keyCode < 123) || (event.keyCode == 8) || (event.keyCode == 9) || (event.keyCode == 32)" />
+  
+      <input type="email" class="input" name="email" placeholder="email" required value=""/>
+      <input ng-model="password" class="input" type="password" name="userPassword" placeholder="Enter Password" ng-required="true"  value=""/>
+      <input ng-model="confirmPassword" class="input" type="password" name="confirmPassword" placeholder="Confirm Password" ng-required="true" value=""/>
+      <span ng-show="password!=confirmPassword">Password mismatch</span>
+    <input type="date" id="dob" name="dob" class="input" required value=""/>
+  
+  <div class="checkbox-inline">
+    <label class="btn btn-sm">
+        <input type="radio" class="custom-control-input" ng-model="Gen" id="Male" value="Male" ng-checked="true">Male
+          </label>
+  </div>
+  <div class="checkbox-inline">
+    <label class="btn btn-sm">
+        <input type="radio" class="custom-control-input" ng-model="Gen" id="Female" value="Female">Female
+          </label>
+  </div>
+  <div class="checkbox-inline">
+    <label class="btn btn-sm">
+        <input type="radio" class="custom-control-input" ng-model="Gen" id="Others" value="Others">Others
+          </label>
+  </div>
+  
+    <!-- Radio button other methods
+    <label class="btn btn-default active">
+            <input type="radio" id="q156" name="quality[25]" value="1" checked="checked" /> Normal
+          </label>
+    <div class="custom-control custom-radio">
+      <input type="radio" class="custom-control-input" ng-model="Gen" id="Male" value="Male" ng-checked="true">
+      <label class="custom-control-label" for="Male">Male</label>
+        <input type="radio" class="custom-control-input" ng-model="Gen" id="Female" value="Female">
+        <label class="custom-control-label" for="Female">Female</label>
+      <input type="radio" class="custom-control-input" ng-model="Gen" id="Other" value="Others">
+      <label class="custom-control-label" for="Others">Others</label>
+      </div>	
+  <div class="custom-control custom-radio">
+    <input type="radio" class="custom-control-input" id="defaultChecked" name="defaultExampleRadios" checked>
+    <label class="custom-control-label" for="defaultChecked">Default checked</label>
+  </div>
+  -->
+  <input type="text"   name="phone" id="phone" placeholder="Enter phone" onkeydown="return (event.keyCode > 47 && event.keyCode < 58) || (event.keyCode == 8) 
+  || (event.keyCode == 9)" maxlength="10" required value="" />
+  
+  <!--    <input type="number"   name="phone" id="phone" placeholder="Enter phone" onKeyPress="if(this.value.length==10) return false;" required value=""/>
+      -->
+    <button type="submit" class="btn-btn-default" >Submit</button> <br>
+    </form>
+  </div>
+  <div class="images-body">
+    <div class="image-container">
+      <img src="images/gallery/library6.jpg" alt="Light House" style="width:100%; height:100%">
+    </div>
+    <div class="image-container">
+      <img src="images/gallery/library6.jpg" alt="Light House" style="width:100%; height:100%">
+    </div>
+  </div>
+
+</div>
+
+
+
+</body>
+</html>

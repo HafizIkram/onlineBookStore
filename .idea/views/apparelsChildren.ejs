@@ -1,0 +1,247 @@
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/prettyPhoto.css" rel="stylesheet">
+  <link href="css/price-range.css" rel="stylesheet">
+  <link href="css/animate.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
+  <link href="css/responsive.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="js/prodCat.js"></script>
+</head>
+<style>
+  body    { padding-top:50px; }
+</style>
+
+<body class="container" ng-app="myApp" ng-controller="MainCtrl">
+
+<header>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid" style="background-color:green;">
+      <div class="navbar-header" >
+		<ul class="nav navbar-nav">
+        <li><img src="images/products/shoppingLogo.jpg" alt="Logo"  width="50%" height="25%"></li>
+        <li><img src="images/products/apparels.jpg" alt="Apparels"  width="200%" height="25%"></li>
+	  </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section id="slider"><!--slider-->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div id="slider-carousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
+              <li data-target="#slider-carousel" data-slide-to="1"></li>
+              <li data-target="#slider-carousel" data-slide-to="2"></li>
+            </ol>
+
+            <div class="carousel-inner">
+              <div class="item active">
+                <div class="col-sm-12">
+                  <img src="images/gallery/girl1.jpg" class="girl img-responsive" alt="" />
+                </div>
+              </div>
+              <div class="item">
+                <div class="col-sm-6">
+                  <img src="images/gallery/girl2.jpg" class="girl img-responsive" alt=""/>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="col-sm-6">
+                  <img src="images/gallery/girl3.jpg" class="girl img-responsive" alt=""/>
+                </div>
+              </div>
+
+            </div>
+
+            <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+              <i class="fa fa-angle-left"></i>
+            </a>
+            <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+              <i class="fa fa-angle-right"></i>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section><!--/slider-->
+  <div class="container">
+      <div class="row">
+        <div class="col-lg-2" style="background-color:green;">
+<!-- <div class="btn-group-vertical" style="background-color:green;> -->
+		<div class="col-lg-2"></div>
+		<button type="button"  class="btn btn-primary btn-block" ng-click="store()">Women's Apparels</button>
+		<div class="col-lg-2"></div>
+		<button type="button" class="btn btn-primary btn-block" ng-click="store()">Children's Apparels</button>
+		<div class="col-lg-2"></div>
+		<button type="button" class="btn btn-primary btn-block" ng-click="store()">Men's Apparels</button>
+		<div class="col-lg-2"></div>
+		<button type="button" class="btn btn-primary btn-block" ng-click="store()">Cosmetics</button>
+		<div class="col-lg-2"></div>
+		<button type="button" class="btn btn-primary btn-block" ng-click="store()">Baggages</button>
+		<div class="col-lg-2"></div>
+<!--		</div> -->
+		</div>
+
+	<div class="col-lg-10">
+  <form  method="post" action="/billing">
+    <div class="col-sm-9 padding-right">
+      <div class="features_items"><!--features_items-->
+        <h2 class="title text-center">Features Items</h2>
+
+		<div class="row">
+            <div class="col-lg-3">
+                <div ng-repeat="x in category" ng-click="getData($index)">
+                {{x.category}}<br>
+                </div>
+            </div>
+			<!--
+            <div class="col-lg-6">
+                {{prods.category}}{{prods.pCode}}{{prods.pCost}}<img src="images/products/{{prods.pImage}}">
+            </div>
+		-->
+
+		<div class="col-lg-3">
+          <div class="product-image-wrapper">
+            <div class="single-products">
+              <div class="productinfo text-center">
+                <img src="images/products/{{prods.pImage}}" alt="" />
+                <h2>Rs. {{prods.pCost}}</h2>
+                <p>{{prods.category}}</p>
+                
+              </div>
+              <div class="product-overlay">
+                <div class="overlay-content">
+                  <h2>Rs. {{prods.pCost}}</h2>
+                  <p>{{prods.category}}</p>
+                                    <button type="button" ng-click="add({pCode: 1001, pCost: '250', pName: 'Finish'})">Add</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        </div>  
+
+        <div class="col-sm-4">
+          <div class="product-image-wrapper">
+            <div class="single-products">
+              <div class="productinfo text-center">
+                <img src="images/products/finish.jpg" alt="" />
+                <!--
+                              <div style="display: none;">{{prodsToAdd.pCost='250'}}</div>
+                              <div style="display: none;">{{prodsToAdd.pName='Item 1'}}</div>
+                -->
+                <h2>Rs.250</h2>
+                <p>Finish Handwash for Clean Hands</p>
+                <!--                            <button ng-click="add({pCode: 1001, pCost: '250', pName: 'Finish'})">Add</button> -->
+
+              </div>
+              <div class="product-overlay">
+                <div class="overlay-content">
+                  <h2>Rs.250</h2>
+                  <p>Finish Handwash for Clean Hands</p>
+                  <!--                <input type="hidden" name="prodcost" value="150000"> -->
+                  <button type="button" ng-click="add({pCode: 1001, pCost: '250', pName: 'Finish'})">Add</button>
+                  <!--                <button ng-click="add({pCost: 250, pName: 'Lacoste'})">Add</button> -->
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="product-image-wrapper">
+            <div class="single-products">
+              <div class="productinfo text-center">
+                <img src="images/products/lancome.jpg" alt="" />
+                <h2>Rs. 450</h2>
+                <p>Room Freshener for fresh air</p>
+                <!--                            <button ng-click="add({pCode: 1002, pCost: '450', pName: 'Lancome'})">Add</button>  -->
+              </div>
+              <div class="product-overlay">
+                <div class="overlay-content">
+                  <h2>Rs. 450</h2>
+                  <p>Room Freshener for fresh air</p>
+                  <button type="button" ng-click="add({pCode: 1002, pCost: '450', pName: 'Lancome'})">Add</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="product-image-wrapper">
+            <div class="single-products">
+              <div class="productinfo text-center">
+                <img src="images/products/lotus.jpg" alt="" />
+                <h2>Rs. 500</h2>
+                <p>Moisturingsing Cream for Face wash</p>
+                <!--                            <button ng-click="add({pCode: 1003, pCost: '500', pName: 'Lotus'})">Add</button>  -->
+              </div>
+              <div class="product-overlay">
+                <div class="overlay-content">
+                  <h2>Rs. 500</h2>
+                  <p>Moisturingsing Cream for Face wash</p>
+                  <button type="button" ng-click="add({pCode: 1003, pCost: '500', pName: 'Lotus'})">Add</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="product-image-wrapper">
+            <div class="single-products">
+              <div class="productinfo text-center">
+                <img src="images/products/moris.jpg" alt="" />
+                <h2>Rs. 150</h2>
+                <p>Milk products for fresh feel</p>
+                <!--                            <button ng-click="add({pCode: 1004, pCost: '150', pName: 'Moris'})">Add</button>  -->
+              </div>
+              <div class="product-overlay">
+                <div class="overlay-content">
+                  <h2>Rs. 500</h2>
+                  <p>Milk products for fresh feel</p>
+                  <button type="button" ng-click="add({pCode: 1004, pCost: '150', pName: 'Moris'})">Add</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+   <div class="col-lg-2" style="background-color:green;>
+    <input type="hidden"  id="prods" name="prods" value="Nothing">
+	<div class="col-lg-2"></div>
+    <button type="button" ng-click="store()" class="btn btn-primary btn-block" >Call store values</button>
+	<div class="col-lg-2"></div>
+    <button type="submit" class="btn btn-primary btn-block">Proceed to billing</button>
+	<div class="col-lg-2"></div>
+    <div ng-repeat="prodToAdd in prodsToAdd">{{prodToAdd.pCode}} {{prodToAdd.pCost}} {{prodToAdd.pName}} </div>
+	</div>
+	</form>
+</div>
+
+</main>
+</body>
+</html>

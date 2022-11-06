@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "pwa-chrome",
+            "name": "http://document.form1.da.value=DA;",
+            "request": "launch",
+            "url": "http://document.form1.da.value=DA;"
+        }
+    ]
+}

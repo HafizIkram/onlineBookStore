@@ -1,0 +1,126 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/books.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="js/books.js"></script>
+    </head>
+    <body class="container" ng-app="myApp" ng-controller="MainCtrl">
+        <main>
+            <form method="post" action="/adminhome2">
+                <button type="submit" class="btn btn-default">Home
+                    <i class="fas fa-home" style="font-size:24px"></i>
+                </button>
+            </form>
+            <div class="mystyle">
+                <h1>Manage Books details</h1>
+            </div>
+            </br>
+            <div class="card">
+                </br>
+                <div class="signup-form">
+                    <form method="post" action="/addproduct">
+                        <h3>General Book Information</h3>
+                        <input
+                            type="text"
+                            name="isbn"
+                            id="isbn"
+                            placeholder="ISBN Code"
+                            required
+                            value=""
+                        >
+                        <input
+                            type="text"
+                            name="title"
+                            id="title"
+                            placeholder="Book title"
+                            required
+                            value=""
+                        >
+                        <input
+                            type="text"
+                            name="author"
+                            id="author"
+                            placeholder="Author"
+                            required
+                            value=""
+                        >
+                        <select class="browser-default custom-select" id="publisher" name="publisher">
+                            <option selected>Select Publisher</option>
+                            <option value="himalaya">Himalaya Publishing House</option>
+                            <option value="pearson">Pearson Publishers</option>
+                            <option value="subhas">Subhas Stores</option>
+                            <option value="skyward">Skyward Publishers</option>
+                            <option value="oxford">Oxford Group</option>
+                            <option value="others">Other Groups</option>
+                        </select>
+                        <input
+                            type="text"
+                            name="price"
+                            id="price"
+                            placeholder="Price"
+                            onkeydown="return (event.keyCode > 47 && event.keyCode < 58) || (event.keyCode == 8) 
+|| (event.keyCode == 9)"
+                            required
+                            value=""
+                        >
+                        <input
+                            type="text"
+                            name="discount"
+                            id="discount"
+                            placeholder="Discount"
+                            onkeydown="return (event.keyCode > 47 && event.keyCode < 58) || (event.keyCode == 8) 
+|| (event.keyCode == 9)"
+                            required
+                            value=""
+                        >
+                        </br>
+                        </br>
+                        <button type="button" class="btn btn-default" ng-click="submitData()">Submit Data</button>
+                        </br>
+                        </br>
+                        </br>
+                        </br>
+                    </div>
+                    <div class="card1">
+                        </br>
+                        <input
+                            type="text"
+                            name="getisbn"
+                            id="getisbn"
+                            placeholder="Enter ISBN Code"
+                            required
+                            value=""
+                        >
+                        <button type="button" class="btn btn-default" ng-click="getData()">Get Book</button>
+                        </br>
+                        </br>
+                        <button type="button" class="btn btn-default" ng-click="updateData()">Update Book</button>
+                        <button type="button" class="btn btn-default" ng-click="deleteData()">Delete Book</button>
+                    </div>
+                </form>
+            </div>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            <form method="get" action="/admin">
+                <p align="right">
+                    <button type="submit">Logout
+                        <i class="fas fa-sign-in-alt" style="font-size:24px"></i>
+                    </button>
+                </p>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

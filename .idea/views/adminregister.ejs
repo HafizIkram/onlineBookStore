@@ -1,0 +1,132 @@
+<html>
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/prettyPhoto.css" rel="stylesheet">
+  <link href="css/price-range.css" rel="stylesheet">
+  <link href="css/animate.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
+  <link href="css/responsive.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="js/adminregister.js"></script>
+  <link href="css/adminregister.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+</head>
+<style>
+  body    { padding-top:10px; }
+  .signup-form form input {
+  background: #F0F0E9;
+  border: 1px solid black;
+  color: #696763;
+  display: block;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  height: 40px;
+  margin-left: 5%;
+  margin-bottom: 10px;
+  outline: medium none;
+  width: 90%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+}
+</style>
+
+<body ng-app="myApp" ng-controller="MainCtrl">
+
+<main>
+
+
+
+  
+  <div class="signup-form">
+   <div class="mystyle">
+  <form  method="post" action="/adminregistered" onsubmit="return alert('You will be redirected to login to confirm registration')" >
+    <input type="hidden"  id="gender" name="gender" value="{{Gen}}" >
+    <h1>Admin Registration</h1>
+    </div></br>
+  
+     <div class="card"></br>
+     <i class="glyphicon glyphicon-user" style="font-size:18px;"></i><input type="text"  name="fname" id="fname" placeholder="First Name" required value="" onkeydown="return (event.keyCode > 64 &&
+event.keyCode < 91) || (event.keyCode > 96 && event.keyCode < 123) || (event.keyCode == 8) || (event.keyCode == 9) || (event.keyCode == 32)" /></br>
+
+   <i class="glyphicon glyphicon-user" style="font-size:18px;"></i> <input type="text"  name="sname" id="sname" placeholder="Last Name" required value="" onkeydown="return (event.keyCode > 64 &&
+event.keyCode < 91) || (event.keyCode > 96 && event.keyCode < 123) || (event.keyCode == 8) || (event.keyCode == 9) || (event.keyCode == 32)" /></br>
+
+    <i class="glyphicon glyphicon-envelope" style="font-size:18px;"></i><input type="email" name="email" placeholder="email" required value=""/></br>
+   <i class="glyphicon glyphicon-lock" style="font-size:18px;"></i> <input ng-model="password" type="password" name="userPassword" placeholder="Enter Password" ng-required="true"  value=""/></br>
+    <i class="glyphicon glyphicon-lock" style="font-size:18px;"></i> <input ng-model="confirmPassword" type="password" name="confirmPassword" placeholder="Confirm Password" ng-required="true" value=""/></br>
+    <span ng-show="password!=confirmPassword">Password mismatch</span>
+	<i class='fas fa-calendar-alt'style="font-size:18px;"></i><input style="width:185px;" type="date" id="dob" name="dob" required value=""/></br>
+    <i class='fas fa-id-card' style='font-size:18px'></i><input type="address" name="address" placeholder="address" required value=""/></br>
+     <i class='fas fa-key' style='font-size:18px'></i><label>select your security question:</label>
+
+<select name="hint" id="hint">
+  <option value="favDish">what is your favorite dish</option>
+  <option value="favPet">what is your favorite pet</option>
+  <option value="favplace">what is your favorite place</option>
+  <option value="frstSchool">which is your frist school</option>
+</select>
+
+<div class="checkbox-inline">
+	<label class="btn btn-sm">
+      <i class="fa fa-mars" style="font-size:18px"></i> <input type="radio" class="custom-control-input" ng-model="Gen" id="Male" value="Male" ng-checked="true">Male
+        </label>
+</div>
+<div class="checkbox-inline">
+	<label class="btn btn-sm">
+      
+<i class="fa fa-venus" style="font-size:18px"></i><input type="radio" class="custom-control-input" ng-model="Gen" id="Female" value="Female">Female
+        </label>
+</div>
+<div class="checkbox-inline">
+	<label class="btn btn-sm">
+      <i class="fa fa-intersex" style="font-size:18px"></i><input type="radio" class="custom-control-input" ng-model="Gen" id="Others" value="Others">Others
+        </label>
+</div>
+
+	<!-- Radio button other methods
+	<label class="btn btn-default active">
+          <input type="radio" id="q156" name="quality[25]" value="1" checked="checked" /> Normal
+        </label>
+	<div class="custom-control custom-radio">
+	  <input type="radio" class="custom-control-input" ng-model="Gen" id="Male" value="Male" ng-checked="true">
+	  <label class="custom-control-label" for="Male">Male</label>
+      <input type="radio" class="custom-control-input" ng-model="Gen" id="Female" value="Female">
+      <label class="custom-control-label" for="Female">Female</label>
+	  <input type="radio" class="custom-control-input" ng-model="Gen" id="Other" value="Others">
+	  <label class="custom-control-label" for="Others">Others</label>
+	  </div>	
+<div class="custom-control custom-radio">
+  <input type="radio" class="custom-control-input" id="defaultChecked" name="defaultExampleRadios" checked>
+  <label class="custom-control-label" for="defaultChecked">Default checked</label>
+</div>
+-->
+</br><i class='fas fa-id-badge' style='font-size:18px'></i><input type="text"   name="phone" id="phone" placeholder="Enter phone" onkeydown="return (event.keyCode > 47 && event.keyCode < 58) || (event.keyCode == 8) 
+|| (event.keyCode == 9)" maxlength="10" required value="" /></br>
+
+<!--    <input type="number"   name="phone" id="phone" placeholder="Enter phone" onKeyPress="if(this.value.length==10) return false;" required value=""/>
+    --></br>
+   
+	<button type="submit"class="btn btn-radius 12px" >Submit</button> 
+    </div>
+    
+	</div>
+</div>
+
+    </div>
+</div>
+
+</div>
+  </form>
+</main>
+</body>
+</html>

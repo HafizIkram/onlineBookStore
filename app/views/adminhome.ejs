@@ -1,0 +1,139 @@
+﻿<html>
+    <head>
+        <title>
+            Online Book Stores
+        </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+        <link href="css/adminhome.css" rel="stylesheet">
+    </head>
+    <body class="container">
+        <main>
+            <div class="mystyle">
+                <h2 style="color:white">
+                    <i class="far fa-bell" style="font-size:24px"></i>
+                    <b> Latest Publications</b>
+                </h2>
+            </div>
+            <div class="blog_posts">
+                <marquee direction="up" scrolldelay="300">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="blog_desc">
+                                    <div class="blog_heading">
+                                        <span style="font-weight:bold">
+                                            <b>Himalaya Publishing House</b>
+                                            <p style="color:red">
+                                                <i>Himalya Publishing House announces its publishing wing for next pubications involving 61,902 participants has found a place in International Book Publishing  as the largest such drive on a single day
+                                                    <i>
+                                                    </p>
+                                                </span>
+                                            </div>
+                                            <br>
+                                            <span style="font-weight:bold">
+                                                <b>Pearson Publication: Pearson Publication new series of sci fi books</b>
+                                                <p style="color:red">
+                                                    <i>While the overall number of publication in International publications has grown over the years, Pearson constitute more than 30% only. Pearson announces a new seires of publications to cover over 50% of the publication in the international market.
+                                                        <i>
+                                                        </p>
+                                                    </span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </marquee>
+                            </div>
+                        </div>
+                        <div class="mystyle">
+                            <b>
+                                <h1 style="color:white" "font-size:24px"> Main Page</h1>
+                            </b>
+                        </div>
+                        <ul>
+                            <form method="post" action="/adminbook">
+                                <button type="submit">Manage Books</button>
+                            </form>
+                            <form method="post" action="/adminmagazines">
+                                <button type="submit">Manage Magazines</button>
+                            </form>
+                            <form method="post" action="/bookorder">
+                                <button type="submit">Manage Book Orders</button>
+                            </form>
+                            <form method="post" action="/magazineorder">
+                                <button type="submit">Manage Magazine Orders</button>
+                            </form>
+                            <form method="get" action="/admin">
+                                <button type="submit">Logout</button>
+                            </form>
+                        </ul>
+                        <div class="slideshow-container">
+                            <div class="mySlides">
+                                <div class="numbertext">1 / 5</div>
+                                <img src="images/gallery/philosophy.jpg" style="width:100%">
+                            </div>
+                            <div class="mySlides">
+                                <div class="numbertext">2 / 5</div>
+                                <img src="images/gallery/librarysj.jpg" style="width:100%">
+                            </div>
+                            <div class="mySlides">
+                                <div class="numbertext">3 / 5</div>
+                                <img src="images/gallery/cod.png" style="width:100%">
+                            </div>
+                            <div class="mySlides">
+                                <div class="numbertext">4 / 5</div>
+                                <img src="images/gallery/librarysj2.jpg" style="width:100%">
+                            </div>
+                            <div class="mySlides">
+                                <div class="numbertext">5 / 5</div>
+                                <img src="images/gallery/images2.png" style="width:100%">
+                            </div>
+                            <a class="prev" onclick="plusSlides(-1)">❮</a>
+                            <a class="next" onclick="plusSlides(1)">❯</a>
+                        </div>
+                        <br>
+                        <div style="text-align:center">
+                            <span class="dot" onclick="currentSlide(1)"></span>
+                            <span class="dot" onclick="currentSlide(2)"></span>
+                            <span class="dot" onclick="currentSlide(3)"></span>
+                            <span class="dot" onclick="currentSlide(4)"></span>
+                            <span class="dot" onclick="currentSlide(5)"></span>
+                        </div>
+                        <script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+                        </script>
+                        <!-- <div class="topnav">
+                            <a href="#news">News</a>
+                            <a href="#contact">Contact</a>
+                            <a href="#about">About</a>
+                        </div> -->
+                    </main>
+                </body>
+            </html>

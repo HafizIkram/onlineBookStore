@@ -1,0 +1,46 @@
+input {
+    border-radius: 8px;
+    max-width: 400px;
+    margin: 7px;
+    background-color: black;
+}
+
+body {
+    background-color: lightgray;
+}
+
+.card {
+    background-color: lightgray;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+    max-width: 350px;
+    height: 85%;
+    margin: auto;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    top: 3px;
+}
+
+.mystyle {
+    border: 8px outset;
+    background-color: darkblue;
+    text-align: center;
+    top: auto;
+}
+
+button {
+    background-color: darkblue;
+    border: radius 12px;
+    color: white;
+    padding: 7px 24px;
+    text-align: center;a
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: 0 4px rgba(0, 0, 0, 0.2);
+}

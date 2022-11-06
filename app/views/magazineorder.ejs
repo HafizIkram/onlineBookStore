@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/order.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="js/magazineorder.js"></script>
+    </head>
+    <body class="container" ng-app="myApp" ng-controller="MainCtrl">
+        <main>
+            <form method="post" action="/adminhome2">
+                <button type="submit">Home
+                    <i class="fas fa-home" style="font-size:24px"></i>
+                </button>
+            </form>
+            <div class="mystyle">
+                <h1>
+                    <b>Manage Magazine Orders</b>
+                </h1>
+            </div>
+            </br>
+            <form method="post" action="/billing" ng-submit="store()">
+                <b>
+                    <button type="button" ng-click="getDataMagazineOrder()">Get Magazine Order Details</button>
+                </b>
+                </br>
+                </br>
+                <h4>
+                    <b>
+                        <option selected> Select Bill Number</option>
+                    </b>
+                </h4>
+                <select class="brower-default custom-select" ng-model="magazinecode" ng-change="add()">
+                    <option ng-repeat="magazine in magazines" value="{{magazine.billno}}">{{magazine.billno}}</option>
+                </select>
+            </div>
+            <table class="table table-striped">
+                <table>
+                    <b>
+                        <tr>
+                            <th>ISSN</th>
+                            <th>Title</th>
+                            <th>Editor</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Discount</th>
+                            <th>Total</th>
+                            <th>Del Name</th>
+                            <th>Delivery Address</th>
+                            <th>Del Phone</th>
+                        </b>
+                    </tr>
+                    <tr mdbTableCol ng-repeat="magazine in addMagazines | filter:magazinecode">
+                        <td>{{magazine.issn}}</td>
+                        <td>{{magazine.title}}</td>
+                        <td>{{magazine.editor}}</td>
+                        <td>{{magazine.price}}</td>
+                        <td>{{magazine.quantity}}</td>
+                        <td>{{magazine.discount}}</td>
+                        <td>{{magazine.total}}</td>
+                        <td>{{magazine.delname}}</td>
+                        <td>{{magazine.deladd}}</td>
+                        <td>{{magazine.delphone}}</td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </div>
+    <form method="get" action="/admin">
+        <p align="right">
+            <button type="submit">Logout
+                <i class="fas fa-sign-in-alt" style="font-size:24px"></i>
+            </button>
+        </p>
+    </form>
+</main>
+</body>
+</html>

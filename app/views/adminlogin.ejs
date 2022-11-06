@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="css/adminlogin.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="js/adminlogin.js"></script>
+    </head>
+    <body ng-app="myApp" ng-controller="MainCtrl">
+        <main>
+            <section id="form">
+                <!--form-->
+                <div class="mystyle">
+                    <img
+                        src="images/gallery/logo1.jpg"
+                        alt="Logo"
+                        width="100"
+                        height="100"
+                    >
+                    <h1>BooksGrocer</h1>
+                    <p>Govindapura, Bangalore - 45</p>
+                    <!-- <h1>Welcome Dear: <%=username%></h1>  -->
+                </div>
+                </br>
+                <div class="card">
+                    <div class="login-form">
+                        <!--login form-->
+                        <br>
+                        <h2>Login Your Account</h2>
+                        <form method="post" action="/adminhome">
+                            <!--                            <input type="text"  name="userid" placeholder="userid" required value=""/> -->
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="Enter email"
+                                required
+                                value=""
+                            >
+                            </br>
+                            <br>
+                            <input
+                                type="password"
+                                name="userPassword"
+                                placeholder="Enter Password"
+                                required
+                                value=""
+                            >
+                            </br>
+                            <br>
+                            <button type="submit" class="btn btn-radius 12px">Login</button>
+                        </form>
+                    </div>
+                    <!--/login form-->
+                    <p2 direction="right">
+                        <a href="forgot.html" title="forgot Form">Forgot password</a>
+                    </p2>
+                    </br>
+                    <div class="signup-form">
+                        <!--sign up form-->
+                        <p1>New Admin</p1>
+                        </br>
+                        </br>
+                        <form method="post" action="/adminregister">
+                            <button type="submit" class="btn btn-radius 12px">Signup</button>
+                        </form>
+                    </div>
+                    <!--/sign up form-->
+                    </br>
+                    <div class="about">
+                        <!--about-->
+                        <form method="get" action="/about">
+                            <a href="about">About</a>
+                        </form>
+                    </div>
+                    <!--/about-->
+                    <!-- <a href="#">Services</a>
+                    <a href="#">Clients</a>
+                    <a href="#">Contact</a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/form-->
+</main>
+</body>
+</html>

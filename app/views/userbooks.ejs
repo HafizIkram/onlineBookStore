@@ -1,0 +1,194 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="css/userbook.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="js/userbooks.js"></script>
+    </head>
+    <body class="container" ng-app="myApp" ng-controller="MainCtrl">
+        <main>
+            <form method="post" action="/userhome2">
+                <button type="submit">Home
+                    <i class="fas fa-home" style="font-size:24px"></i>
+                </button>
+            </form>
+            <div class="mystyle">
+                <h2>
+                    <b>Purchase Books</b>
+                </h2>
+            </div>
+            </br>
+            <form method="post" action="/billing" ng-submit="store()">
+                <center>
+                    <button type="button" ng-click="getDataBook()">Get Book Details</button>
+                    &nbsp&nbsp&nbsp
+                    <label>Bill No.</label>
+                    <input
+                        type="text"
+                        name="billno"
+                        id="billno"
+                        placeholder="Bill No"
+                        required
+                        value=""
+                    >
+                    </br>
+                    </br>
+                    <option selected> Select Book Code</option>
+                    <select class="brower-default custom-select" ng-model="bookcode" ng-change="add(bookcode)">
+                        <option ng-repeat="book in books" value="{{$index+1}}">{{book.isbn}}</option>
+                    </select>
+                </center>
+                <div class="card1">
+                    </br>
+                    <h4>
+                        <b>Enter Purchase Details</b>
+                    </h4>
+                    <b>   Name:</b>
+                    <input
+                        type="text"
+                        name="delname"
+                        id="delname"
+                        placeholder="Delivery Name"
+                        required
+                        value=""
+                    >
+                    </br>
+                    <b> Address:</b>
+                    <input
+                        type="text"
+                        name="deladd"
+                        id="deladd"
+                        placeholder="Delivery Address"
+                        required
+                        value=""
+                    >
+                    <b> Phone:</b>
+                    <input
+                        type="text"
+                        name="delphone"
+                        id="delphone"
+                        placeholder="Delivery Phone"
+                        required
+                        value=""
+                    >
+                    </br>
+                </div>
+                </br>
+                </br>
+                <div class="card">
+                    </br>
+                    <input
+                        type="text"
+                        name="isbn"
+                        id="isbn"
+                        placeholder=" ISBN Code"
+                        required
+                        value=""
+                    >
+                    </br>
+                    <input
+                        type="text"
+                        name="title"
+                        id="title"
+                        placeholder=" Name"
+                        required
+                        value=""
+                    >
+                    </br>
+                    <input
+                        type="text"
+                        name="author"
+                        id="author"
+                        placeholder=" Type"
+                        required
+                        value=""
+                    >
+                    </br>
+                    <input
+                        type="text"
+                        name="price"
+                        id="price"
+                        placeholder=" Price"
+                        required
+                        value=""
+                    >
+                    </br>
+                    <input
+                        type="number"
+                        name="quantity"
+                        id="quantity"
+                        placeholder=" Quantity"
+                        required
+                        value=""
+                    >
+                    </br>
+                    <input
+                        type="number"
+                        name="discount"
+                        id="discount"
+                        placeholder="Discount"
+                        required
+                        value="20"
+                        ng-change="calculate()"
+                    >
+                    </br>
+                    </br>
+                    <button type="button" ng-click="calculate()">Total</button>
+                    </br>
+                    </br>
+                    <input
+                        type="number"
+                        name="total"
+                        id="total"
+                        placeholder="Total Amount"
+                        required
+                        value=""
+                    >
+                    <button type="button" ng-click="addBook()">Select</button>
+                </div>
+                <table class="table table-striped">
+                    <table>
+                        <tr>
+                            <th>ISBN</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Discount</th>
+                            <th>Total</th>
+                            <th>Del Name</th>
+                            <th>Delivery Address</th>
+                            <th>Del Phone</th>
+                        </tr>
+                        <tr mdbTableCol ng-repeat="book in addBooks">
+                            <td>{{book.isbn}}</td>
+                            <td>{{book.title}}</td>
+                            <td>{{book.author}}</td>
+                            <td>{{book.price}}</td>
+                            <td>{{book.quantity}}</td>
+                            <td>{{book.discount}}</td>
+                            <td>{{book.total}}</td>
+                            <td>{{book.delname}}</td>
+                            <td>{{book.deladd}}</td>
+                            <td>{{book.delphone}}</td>
+                        </tr>
+                    </table>
+                    </br>
+                    </br>
+                    <p align="right">
+                        <button type="button" ng-click="order()">Place Order</button>
+                    </p>
+                    <center>
+                        <button type="submit">Billing Details</button>
+                    </center>
+                    <!-- 
+	</form>
+    <form  method="get" action="https://secure.payu.com/api/v2_1/orders">
+                           <p align="center" > <button type="submit"  >Make Payment <i class='fas fa-sign-in-alt' style='font-size:24px'></i></button></p>
+                        </form> -->
+                </main>
+            </body>
+        </html>

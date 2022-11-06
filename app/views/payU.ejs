@@ -1,0 +1,99 @@
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/prettyPhoto.css" rel="stylesheet">
+  <link href="css/price-range.css" rel="stylesheet">
+  <link href="css/animate.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
+  <link href="css/responsive.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="js/payU.js"></script>
+</head>
+
+<body  ng-app="myApp" ng-controller="MainCtrl" background="images/products/gettyimages-1157972199-2048x2048.jpg">
+
+
+
+<main>
+
+    <section id="form"><!--form-->
+        <div class="container">
+        <div class="row">
+
+<!--
+        <form ngNoForm cl  action="https://test.payu.in/_payment" method="POST" style="display:none">
+   -->
+<!-- This is for test mode
+        <form ngNoForm cl  action="https://test.payu.in/_payment" method="POST">
+  <input type="text" name="key" [value]="paymentInfo.hash_sequence.key" />
+  <input  type="text" name="txnid" [value]="paymentInfo.hash_sequence.txnid"/>
+  <input type ="text" name="amount"  [value]="paymentInfo.hash_sequence.amount"/>
+  <input type="text" name="currency" value="paymentInfo.hash_sequence.currency" />
+  <input  type="text" name="productinfo" [value]="paymentInfo.hash_sequence.productinfo" />
+  <input type ="text" name="firstname"  [value]="paymentInfo.hash_sequence.firstname"/>
+  <input type="text" name="email" [value]="paymentInfo.hash_sequence.email" />
+  <input type ="text" name="phone"  [value]="paymentInfo.hash_sequence.mobile"/>
+  <input type ="text" name="hash"  [value]="paymentInfo.hash"/>  
+  <input type ="text" name="surl"  value="{{environment.api}}/payment/success"/>
+  <input type ="text" name="furl"  value="{{environment.api}}/payment/failure"/>
+  <input type ="text" name="curl"  value="{{environment.api}}/payment/cancel"/>
+  <button id="get_payment" type="submit">Submit</button>
+</form>
+-->
+<!-- This is for test mode
+
+<form ngNoForm cl  action="https://test.payu.in/_payment" method="POST">
+<label>Key</label>  <input type="text" name="key" [value]="paymentInfo.hash_sequence.key" /> </br>
+<label>txnid</label>  <input  type="text" name="txnid" [value]="paymentInfo.hash_sequence.txnid"/> </br>
+<label>amount</label>  <input type ="text" name="amount"  [value]="paymentInfo.hash_sequence.amount"/> </br>
+<label>productinfo</label>  <input  type="text" name="productinfo" [value]="paymentInfo.hash_sequence.productinfo" /> </br>
+<label>firstname</label>  <input type ="text" name="firstname"  [value]="paymentInfo.hash_sequence.firstname"/> </br>
+<label>email</label>  <input type="text" name="email" [value]="paymentInfo.hash_sequence.email" /> </br>
+<label>phone</label>  <input type ="text" name="phone"  [value]="paymentInfo.hash_sequence.mobile"/> </br>
+<label>surl</label>  <input type ="text" name="surl"  value="{{environment.api}}/payment/success"/> </br>
+<label>furl</label>  <input type ="text" name="furl"  value="{{environment.api}}/payment/failure"/> </br>
+<label>curl</label>  <input type ="text" name="curl"  value="{{environment.api}}/payment/cancel"/> </br>
+
+<label>currency</label>  <input type="text" name="currency" value="paymentInfo.hash_sequence.currency" /> </br>
+<label>hash</label>  <input type ="text" name="hash"  [value]="paymentInfo.hash"/>  </br>
+
+  <button id="get_payment" type="submit">Submit</button>
+    </form>
+ -->
+
+ <form method="post" action="https://secure.payu.com/api/v2_1/orders">
+    <input type="hidden" name="customerIp" value="123.123.123.123">
+    <input type="hidden" name="merchantPosId" value="145227">
+    <input type="hidden" name="description" value="Order description">
+    <input type="hidden" name="totalAmount" value="1000">
+    <input type="hidden" name="currencyCode" value="PLN">
+    <input type="hidden" name="products[0].name" value="Product 1">
+    <input type="hidden" name="products[0].unitPrice" value="1000">
+    <input type="hidden" name="products[0].quantity" value="1">
+    <input type="hidden" name="notifyUrl" value="http://shop.url/notify">
+    <input type="hidden" name="continueUrl" value="http://shop.url/continue">
+    <input type="hidden" name="OpenPayu-Signature" value="sender=145227;algorithm=SHA-256;signature=bc94a8026d6032b5e216be112a5fb7544e66e23e68d44b4283ff495bdb3983a8">
+<div class="p-3 mb-2 bg-primary text-white">
+    <input type="text" name="orderNo" id="orderNo" value="" disabled> </br>
+    <input type="text" name="totAmount" id="totAmount" value="" disabled> </br>
+    <button type="submit" formtarget="_blank" >Pay with PayU</button>
+
+</div>
+</form >
+   </div>
+</div>
+
+</section><!--/form-->
+
+
+
+</main>
+
+
+</body>
+</html>

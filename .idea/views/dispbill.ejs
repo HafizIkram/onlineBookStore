@@ -1,0 +1,85 @@
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/prettyPhoto.css" rel="stylesheet">
+  <link href="css/price-range.css" rel="stylesheet">
+  <link href="css/animate.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
+  <link href="css/responsive.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="js/dispbill.js"></script>
+
+</head>
+<style>
+  body    { padding-top:50px; }
+</style>
+
+<body class="container" ng-app="myApp" ng-controller="MainCtrl" >
+
+<header>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Online shopping</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="categories">Categories</a></li>
+        <li><a href="loginpage.html">Login Page</a></li>
+        <li><a href="contact us.html">Contact us</a></li>
+
+        <!--        <li>
+                  <form  method="post" action="/home">
+                    <button type="submit" name="home" value="Products">Home</button>
+                  </form>
+
+                <li>
+                  <form  method="post" action="/Categories">
+                    <button type="submit" name="products" value="products">Products</button>
+                  </form>
+
+
+                </li>
+        -->
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main>
+    <form  method="post" action="/">
+
+  <input type="hidden"  id="prods" name="prods" value=<%=products%>>
+
+  <button type="button" ng-click="dispData()">get Sales data</button>
+
+        <table>
+    <tr>
+        <th>Product Cost</th>  <th>Product Name</th>
+    </tr>
+</table>
+ <div ng-repeat="prodToAdd in prodsToAdd track by $index">
+     <table>
+
+  <tr>
+<td>{{$index}}</td><td>{{prodToAdd.pCost}}</td>  <td>{{prodToAdd.pName}}</td>
+  </tr>
+</table>
+      </div>
+        <div ng-repeat="prodToAdd in prodsToAdd">
+            <li>
+                {{prodToAdd.pCost}} {{prodToAdd.pName}}
+            </li>
+        </div>
+
+
+  </form>
+
+</main>
+</body>
+</html>
