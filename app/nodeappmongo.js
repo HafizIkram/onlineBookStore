@@ -744,8 +744,8 @@ app.route("/getBillNo").post(function (req, res) {
           res.send("1000");
         } else {
           // db.close;
-          billNum = 1000; //Comment this line and recomment from next line after first execution
-          // billNum = result[0].billno;
+          // billNum = 1000; //Comment this line and recomment from next line after first execution
+          billNum = result[0].billno;
           console.log("Inside sales.find()");
           console.log(billNum);
           billArr = [];
@@ -774,8 +774,8 @@ app.route("/getMagazineBillNo").post(function (req, res) {
           res.send("1000");
         } else {
           db.close;
-          billNum = 1000; //Comment this line and recomment from next line after first execution
-          //    billNum = result[0].billno;
+          // billNum = 1000; //Comment this line and recomment from next line after first execution
+             billNum = result[0].billno;
           console.log("Inside sales.find()");
           console.log(billNum);
           billArr = [];

@@ -54,7 +54,7 @@ myApp.controller('MainCtrl', function ($scope, $http) {
         });
         // alert("Got Book Details");
         $http.post('/getBillNo').success(function (billArray) {
-            x = parseInt(billArray[0].billno) ? parseInt(billArray[0].billno) : 1000;
+            x = parseInt(billArray[0].billno) || 1000;
             x = x + 1;
             document.getElementById('billno').value = x;
             
